@@ -1,7 +1,8 @@
 
 const mongoose = require('mongoose');
 
-const MONGODB_URI = 'mongodb://localhost/book-app'
+const {BOOKS_APP_MONGODB_HOST,BOOKS_APP_MONGODB_DATABASE} = process.env;
+const MONGODB_URI = `mongodb://${BOOKS_APP_MONGODB_HOST}/${BOOKS_APP_MONGODB_DATABASE}`;
 
 mongoose.connect(MONGODB_URI , {
     useNewUrlParser: true ,
