@@ -24,9 +24,11 @@ app.use(exppress.urlencoded({extended:false}));
 
 
 // Routes
-app.get('/', (req, res) =>{
+/*app.get('/', (req, res) =>{
     res.render('index');
-})
+})*/
+
+app.use(require('./routes/index.routes'));
 
 // Static files
 app.use(exppress.static(path.join(__dirname, 'public')));
