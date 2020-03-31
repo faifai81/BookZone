@@ -11,8 +11,12 @@ const BookSchema = new Schema({
     summarry:{
         type: String  
     },
-    Price:{
+    price:{
         type:String
+    },
+    buyLink: {
+        type: String,
+        required: true
     }
 
 },{

@@ -1,6 +1,7 @@
 const exppress = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const morgan = require('morgan');
 
 // Initializations
 
@@ -18,6 +19,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Middlewares
+app.use(morgan('dev'));
 app.use(exppress.urlencoded({extended:false}));
 
 // Global Variables
@@ -29,6 +31,7 @@ app.use(exppress.urlencoded({extended:false}));
 })*/
 
 app.use(require('./routes/index.routes'));
+app.use(require('./routes/books.routes'));
 
 // Static files
 app.use(exppress.static(path.join(__dirname, 'public')));
