@@ -17,10 +17,21 @@ const BookSchema = new Schema({
     buyLink: {
         type: String,
         required: true
+    },
+    portada: {
+        type:String
+    },
+    idioma: {
+        type:String
     }
 
 },{
     timestamps: true
+},
+{
+    allowedProtoMethods: {
+        trim: true
+      }
 });
 
 module.exports = model('Book',BookSchema);

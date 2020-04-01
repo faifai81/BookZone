@@ -1,0 +1,49 @@
+<!--<div class="row">
+    {{#each books}}
+        <div class="clo-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4>{{title}}</h4>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+
+
+</div>-->
+
+<div class="row">
+    {{#each books}}
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card_book">
+            <div class="card">
+                <div class="card-body text-center">
+                    <p>
+                        <img class="img-fluid" src="{{portada}}" alt="{{title}}">
+                    </p>
+                    <h4  class="card-title">{{title}}</h4>
+                    <p class="card-text">
+                        {{summarry}}
+                    </p>
+                    <div class="container-precio-idioma">
+                        <p class="badge badge-info">
+                            {{price}}€
+                        </p>
+                        <p class="badge badge-info">
+                            {{idioma}}
+                        </p>
+                    </div>
+                    <a href="{{buyLink}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
+                    <form action="/books/delete/{{_id}}" method="post">
+                        <button type="submit" class="btn btn-danger btn-block">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+
+</div>
