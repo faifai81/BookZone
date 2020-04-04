@@ -6,7 +6,8 @@ const MONGODB_URI = `mongodb://${BOOKS_APP_MONGODB_HOST}/${BOOKS_APP_MONGODB_DAT
 
 mongoose.connect(MONGODB_URI , {
     useNewUrlParser: true ,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 })
 .then(db => console.log('database is connected.'))
 .catch(err => console.log(err));

@@ -18,6 +18,7 @@
         <div class="card_book">
             <div class="card">
                 <div class="card-body text-center">
+                    <a href="/books/edit/{{_id}}"><i class="fa fa-edit"></i></a>
                     <p>
                         <img class="img-fluid" src="{{portada}}" alt="{{title}}">
                     </p>
@@ -27,14 +28,15 @@
                     </p>
                     <div class="container-precio-idioma">
                         <p class="badge badge-info">
-                            {{price}}€
+                            {{price}}
                         </p>
                         <p class="badge badge-info">
                             {{idioma}}
                         </p>
                     </div>
                     <a href="{{buyLink}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
-                    <form action="/books/delete/{{_id}}" method="post">
+                    <form action="/books/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger btn-block">
                             Delete
                         </button>

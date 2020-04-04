@@ -1,5 +1,5 @@
-const {Router} = require('express')
-const router = Router()
+const {Router} = require('express');
+const router = Router();
 
 const { renderbookForm, 
     createNewBook, 
@@ -9,21 +9,24 @@ const { renderbookForm,
     deleteBook
 } = require('../controllers/books.controller');
 
+const {isAuthenticated} = require('../helpers/auth');
+
+
 
 //New Book
-router.get('/books/add', renderbookForm);
+router.get('/books/add', isAuthenticated, renderbookForm);
 
-router.post('/books/new-book', createNewBook);
+router.post('/books/new-book', isAuthenticated, createNewBook);
 
 //Get All Book
-router.get('/books', renderBooks);
+router.get('/books', isAuthenticated, renderBooks);
 
 //Edit Books
-router.get('/books/edit/:id', renderEditBook);
-router.put('/books/edit/:id', updateBook);
+router.get('/books/edit/:id', isAuthenticated, renderEditBook);
+router.put('/books/edit/:id', isAuthenticated, updateBook);
 
 //Delete Books
-router.delete('/books/edit/:id', deleteBook);
+router.delete('/books/delete/:id', isAuthenticated, deleteBook);
 
 
 module.exports = router

@@ -23,6 +23,10 @@ const BookSchema = new Schema({
     },
     idioma: {
         type:String
+    },
+    user: {
+        type: String,
+        required:true
     }
 
 },{

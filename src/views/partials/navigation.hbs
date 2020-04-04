@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">Book App</a>
+        <a class="navbar-brand" href="/"><img src="/img/logo.png" width="100" height="40" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,21 +8,47 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
+
                     <a class="nav-link" href="/">Buscar <span class="sr-only">(current)</span></a>
+
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Favoritos</a>
+
+                {{#if user}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Notes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/books">All favorite</a>
+                        <a class="dropdown-item" href="/books/add">Add favorite</a>
+                        
+                    </div>
                 </li>
-                
+                {{else}}
+                <li class="nav-item"></li>
+                <a class="nav-link" href="/users/signin">Favoritos</a>
+                </li>
+                {{/if}}
+
+
+
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                {{#if user}}
                 <li>
-                    <a href="#" class="nav-link"> Entrar </a>
+                    <a href="/users/logout" class="nav-link"> logout </a>
+                </li>
+
+                {{else}}
+                <li>
+                    <a href="/users/signin" class="nav-link"> Entrar </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link"> Registrarse </a>
+                    <a href="/users/signup" class="nav-link"> Registrarse </a>
                 </li>
+                {{/if}}
             </ul>
         </div>
     </div>
